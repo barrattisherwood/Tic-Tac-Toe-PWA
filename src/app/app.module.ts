@@ -8,6 +8,8 @@ import { BoardComponent } from './board/board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbThemeModule, NbLayoutModule, NbButtonModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', component: BoardComponent}
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     NbThemeModule.forRoot(),
     NbLayoutModule,
     NbButtonModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [RouterModule],
   bootstrap: [AppComponent]
